@@ -9,16 +9,18 @@ Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = Scene::create();
-    
     // 'layer' is an autorelease object
    // auto layer = HelloWorld::create();
-	  auto layer = new MainLayer();
-    layer->autorelease();
+	auto layer = new MainLayer();
+	auto layer4 = new MenuLayer4();
+   layer->autorelease();
+  // layer4->autorelease();
 
   //  addChild(layer);
    // Director::getInstance()->replaceScene(this);
     // add layer as a child to scene
     scene->addChild(layer);
+	scene->addChild(layer4);
 
 
     // return the scene
@@ -60,6 +62,8 @@ MainLayer::MainLayer()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
+
+
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(MainLayer::onTouchBegan, this);
     listener->onTouchEnded = CC_CALLBACK_2(MainLayer::onTouchEnded, this);
@@ -68,7 +72,7 @@ MainLayer::MainLayer()
     auto sprite = Sprite::create(s_pathGrossini);
     
     auto layer = LayerColor::create(Color4B(255,255,0,255));
-    addChild(layer, -1);
+  //  addChild(layer, -1);
         
     addChild(sprite, 0, kTagSprite);
     sprite->setPosition( Vec2(20,150) );
@@ -121,4 +125,89 @@ void MainLayer::menuCloseCallback(Ref* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
+}
+
+//------------------------------------------------------------------
+//
+// MenuLayer4
+//
+//------------------------------------------------------------------
+MenuLayer4::MenuLayer4()
+{
+    MenuItemFont::setFontName("American Typewriter");
+    MenuItemFont::setFontSize(18);
+	auto title1 = MenuItemFont::create("Sound");
+    title1->setEnabled(false);
+	MenuItemFont::setFontName( "fonts/Marker Felt.ttf" );
+    MenuItemFont::setFontSize(18);
+    auto item1 = MenuItemToggle::createWithCallback( CC_CALLBACK_1(MenuLayer4::menuCallback, this),
+                                                                MenuItemFont::create( "On" ),
+                                                                MenuItemFont::create( "Off"),
+                                                                NULL );
+    MenuItemFont::setFontName( "American Typewriter" );
+    MenuItemFont::setFontSize(18);
+    auto title2 = MenuItemFont::create( "Music" );
+    title2->setEnabled(false);
+    MenuItemFont::setFontName( "fonts/Marker Felt.ttf" );
+    MenuItemFont::setFontSize(18);
+    auto item2 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(MenuLayer4::menuCallback, this),
+                                                                MenuItemFont::create( "On" ),
+                                                                MenuItemFont::create( "Off"),
+                                                                NULL );
+	    
+    MenuItemFont::setFontName( "American Typewriter" );
+    MenuItemFont::setFontSize(18);
+    auto title3 = MenuItemFont::create( "Quality" );
+    title3->setEnabled( false );
+    MenuItemFont::setFontName( "fonts/Marker Felt.ttf" );
+    MenuItemFont::setFontSize(18);
+    auto item3 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(MenuLayer4::menuCallback, this),
+                                                                MenuItemFont::create( "High" ),
+                                                                MenuItemFont::create( "Low" ),
+                                                                NULL );
+   MenuItemFont::setFontName( "American Typewriter" );
+    MenuItemFont::setFontSize(18);
+    auto title4 = MenuItemFont::create( "Orientation" );
+    title4->setEnabled(false);
+    MenuItemFont::setFontName( "fonts/Marker Felt.ttf" );
+    MenuItemFont::setFontSize(18);
+    auto item4 = MenuItemToggle::createWithCallback(CC_CALLBACK_1(MenuLayer4::menuCallback, this),
+                                                                MenuItemFont::create( "Off" ), 
+                                                                NULL );
+    auto menu = Menu::create(
+                  title1,
+                  title2,
+				  title3,
+                  title4,
+                   NULL ); // 9 items.
+    auto menu2 = Menu::create(
+                  item1,
+                  item2,
+				  item3,
+                  item4,
+                   NULL ); // 9 items.
+    // menu->alignItemsInColumns(2, 2, 2, 2, NULL);
+    menu->alignItemsVerticallyWithPadding( 30 );
+     menu2->alignItemsVerticallyWithPadding( 30 );
+    addChild( menu );
+	addChild( menu2 );
+    auto s = Director::getInstance()->getWinSize();
+    menu->setPosition(Vec2(s.width/1.4, s.height/1.6));
+	menu->setScale(1);
+    menu2->setPosition(Vec2(s.width/1.2, s.height/1.6));
+	menu2->setScale(1);
+}
+
+MenuLayer4::~MenuLayer4()
+{
+}
+
+void MenuLayer4::menuCallback(Ref* sender)
+{
+    //CCLOG("selected item: %x index:%d", dynamic_cast<MenuItemToggle*>(sender)->selectedItem(), dynamic_cast<MenuItemToggle*>(sender)->selectedIndex() ); 
+}
+
+void MenuLayer4::backCallback(Ref* sender)
+{
+    static_cast<LayerMultiplex*>(_parent)->switchTo(0);
 }
