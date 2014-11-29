@@ -29,4 +29,32 @@ public:
 
     //CREATE_NODE(MenuLayer4);
 };
+class MenuLayerMainMenu : public Layer
+{
+protected:
+    MenuItem*    _disabledItem;
+    EventListenerTouchOneByOne* _touchListener;
+
+public:
+    MenuLayerMainMenu(void);
+    ~MenuLayerMainMenu();
+
+public:
+    bool onTouchBegan(Touch *touch, Event * event);
+    void onTouchEnded(Touch *touch, Event * event);
+    void onTouchCancelled(Touch *touch, Event * event);
+    void onTouchMoved(Touch *touch, Event * event);
+
+    void allowTouches(float dt);
+    void menuCallback(Ref* sender);
+    void menuCallbackConfig(Ref* sender);
+    void menuCallbackDisabled(Ref* sender);
+    void menuCallback2(Ref* sender);
+    void menuCallbackPriorityTest(Ref* sender);
+    void menuCallbackBugsTest(Ref *pSender);
+    void onQuit(Ref* sender);
+    void menuMovingCallback(Ref *pSender);
+
+    //CREATE_NODE(MenuLayer1);
+};
 #endif // __HELLOWORLD_SCENE_H__
