@@ -74,12 +74,15 @@ MainLayer::MainLayer()
     auto sprite = Sprite::create(s_pathGrossini);
     
     auto layer = LayerColor::create(Color4B(255,255,0,255));
-  //  addChild(layer, -1);
+    addChild(layer, -1);
         
     addChild(sprite, 0, kTagSprite);
     sprite->setPosition( Vec2(20,150) );
     
-    sprite->runAction( JumpTo::create(4, Vec2(300,48), 100, 4) );
+   // sprite->runAction( JumpTo::create(4, Vec2(300,48), 100, 4) );
+    auto s = Director::getInstance()->getWinSize();
+    auto jump = JumpBy::create(3, Vec2(s.width-80,0), 50, 4);
+    sprite->runAction( RepeatForever::create(Sequence::create(jump, jump->reverse(), NULL) ));
     
     layer->runAction( RepeatForever::create(
                                 Sequence::create(

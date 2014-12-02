@@ -1,7 +1,11 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
+#include "SimpleAudioEngine.h"
+using namespace CocosDenshion;
 
-USING_NS_CC;
+#include "MTGame.h"
+
+using namespace cocos2d;
 
 AppDelegate::AppDelegate() {
 
@@ -9,6 +13,9 @@ AppDelegate::AppDelegate() {
 
 AppDelegate::~AppDelegate() 
 {
+    SimpleAudioEngine::end();
+	//释放动画管理器
+	sAnimationMgr->release();
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
@@ -27,17 +34,21 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+    	//初始化动画管理器
+	sAnimationMgr->initAnimationMap();
+		//创建游戏主界面
+    Scene *pScene = GameScene::create();
 
     // run
-    director->runWithScene(scene);
+    	//让director运行场景
+    director->runWithScene(pScene);
 
     return true;
 }
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
-    Director::getInstance()->stopAnimation();
+     Director::getInstance()->pause();
 
     // if you use SimpleAudioEngine, it must be pause
     // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
@@ -45,7 +56,7 @@ void AppDelegate::applicationDidEnterBackground() {
 
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() {
-    Director::getInstance()->startAnimation();
+     Director::getInstance()->resume();
 
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
