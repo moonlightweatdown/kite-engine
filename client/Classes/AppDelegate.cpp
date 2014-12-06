@@ -3,8 +3,7 @@
 #include "SimpleAudioEngine.h"
 using namespace CocosDenshion;
 
-#include "MTGame.h"
-
+#include "MHGame.h"
 using namespace cocos2d;
 
 AppDelegate::AppDelegate() {
@@ -34,14 +33,16 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-    	//初始化动画管理器
+    //初始化动画管理器
 	sAnimationMgr->initAnimationMap();
-		//创建游戏主界面
-    Scene *pScene = GameScene::create();
+	//创建游戏主界面
+   // Scene *pScene = GameScene::create();
+	//我的游戏测试
+	Scene *mScene = MyGameScene::create();
 
     // run
     	//让director运行场景
-    director->runWithScene(pScene);
+    director->runWithScene(mScene);
 
     return true;
 }
