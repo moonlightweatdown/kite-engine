@@ -1,7 +1,7 @@
 #ifndef _ANIMATION_MANAGER_H_
 #define _ANIMATION_MANAGER_H_
 
-#include "MTGame.h"
+#include "MHGame.h"
 
 using namespace cocos2d;
 

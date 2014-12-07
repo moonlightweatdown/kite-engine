@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="nogo" tilewidth="32" tileheight="32">
+  <image source="nogo.png" trans="ff00ff" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="kk" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="New_Town_Ex.png" trans="ff00ff" width="544" height="416"/>
+ </tileset>
+ <tileset firstgid="194" name="cango" tilewidth="32" tileheight="32">
+  <image source="terrain.png" trans="ff00ff" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="196" name="nogo" tilewidth="32" tileheight="32">
+  <image source="nogo.png" trans="ff00ff" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="197" name="dd" tilewidth="32" tileheight="32">
+  <image source="up_floor.png" trans="ff00ff" width="32" height="32"/>
+ </tileset>
+ <layer name="块层 1" width="16" height="12">
+  <data encoding="base64" compression="zlib">
+   eJwNwwdXDgAAAMDvNSQl2ZJRMjPTMNOWvbP3zEplZGVVVmZDhCJKdmRFyD9z994FBQKBYEMMtZdh9jbcPkYYaV+j7Ge0/R3gQAc52CEOdZgxDjfWEY50lKONM94xJjjWcY53ghOdZKKTneJUpzndGSY502RTTDXNWc52jnOd53zTXWCGmWaZbY655rnQfBe52CUudZnLXeFKV7naNa51nQWud4Mb3eRmt7jVbW53hzvd5W73uNd97veAhR70kIc94lGLPGaxJZZ63BOe9JRlnvaMZz3necu94EUvedkrVlhplVe95nVveNNqb3nbO971nvetsdY6631ggw99ZKOPfeJTm2z2mc9t8YUvbbXNV7b72je+9Z3v/eBHO/zkZzv94le/+d0fdvnTX3b72z/+tcd//gdJ1kkh
+  </data>
+ </layer>
+ <layer name="can" width="16" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhe4BAaGxnjUk8qxmUfNczD5x9k83HJ00I/Pjdj00+qH4mxn1b6AZ0GKnE=
+  </data>
+ </layer>
+ <layer name="no" width="16" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg84DCRGJ8eBhzq0NVSy53UMJeQX7GZjy6Py1xS9eMLa2xuxqYfn3pCcYXLfkLm4pIjpB8ARcI0kA==
+  </data>
+ </layer>
+ <objectgroup name="object">
+  <object type="teleport" x="480" y="160" width="32" height="32">
+   <properties>
+    <property name="heroTileCoordX" value="5"/>
+    <property name="heroTileCoordY" value="8"/>
+    <property name="image" value="down_floor.png"/>
+    <property name="targetMap" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

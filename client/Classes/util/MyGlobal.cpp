@@ -11,6 +11,8 @@ MyGlobal::MyGlobal(void)
 	MygameMap = NULL;
 
 	Myhero = NULL;
+
+	MycontrolLayer = NULL;
 	//新游戏，当前地图层数为0
 	currentLevel = 0;
 

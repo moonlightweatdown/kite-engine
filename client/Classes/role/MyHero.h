@@ -26,6 +26,9 @@ public:
 	//开始战斗逻辑
 	void fight();
 
+	//传送
+	void doTeleport(MyTeleport *teleport);
+
 	//标识勇士是否在移动状态
 	bool isHeroMoving;
 
@@ -50,7 +53,9 @@ public:
 	//显示战斗动画的精灵
 	Sprite *fightSprite;
 
-	
+	//碰撞检测方法
+	CollisionType checkCollision(Point heroPosition);
+
 	//移动完成后的回调函数
 	void onMoveDone(Node* pTarget, void* data);
 

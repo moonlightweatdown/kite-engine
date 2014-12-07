@@ -9,7 +9,7 @@ class MyGameLayer;
 class MyGameMap;
 class MyHero;
 class MyAnimationManager;
-
+class MyControlLayer;
 class MyGlobal : public Singleton<MyGlobal>
 {
 public:
@@ -24,6 +24,8 @@ public:
 	//”¬ ø
 	MyHero *Myhero;
 	MyAnimationManager *MyAnima;
+
+	MyControlLayer *MycontrolLayer;
 	//”Œœ∑µÿÕº
 	MyGameMap *MygameMap;
 

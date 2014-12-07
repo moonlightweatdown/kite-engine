@@ -5,11 +5,13 @@
 
 USING_NS_CC;
 
-
+class MyTeleport;
 //继承自CCTMXTIledMap
 class MyGameMap : public TMXTiledMap
 {
 	//只读变量，获取各图层CC_PROPERTY_READONLY
+	CC_SYNTHESIZE(TMXLayer*, noLayer, NoLayer);
+	CC_SYNTHESIZE(TMXLayer*, canLayer, CanLayer);
 
 public:
 	MyGameMap(void);
@@ -22,6 +24,7 @@ public:
 	Point tileCoordForPosition(Point position);
 	Point positionForTileCoord(Point tileCoord);
 	void showEnemyHitEffect(Point tileCoord);
+	Map<int, MyTeleport*> myteleportDict;
 	protected:
 	//TiledMap额外的初始化方法
 	void extraInit();

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="background" tilewidth="32" tileheight="32">
+  <image source="Simple-Town-Example.png" trans="ff00ff" width="544" height="416"/>
+ </tileset>
+ <tileset firstgid="222" name="no" tilewidth="32" tileheight="32">
+  <image source="terrain.png" trans="ff00ff" width="64" height="32"/>
+ </tileset>
+ <layer name="块层 1" width="16" height="12">
+  <data encoding="base64" compression="zlib">
+   eJwNwwdTDgAAANCvISnJ2cmok5nZaZipriF7HLLnmVmpy8jKOJWVeQ0RiouSnZMVIX/Ke3cvKBAIBBtiqL0Ms7fh9jHCSPsaZT+j7e8ABzrIwQ5xqMOMcbixjnCkoxxtnPGOMcGxjnO8E5zoJBOd7BSnOs3pzjDJmSabYqppznK2c5zrPOeb7gIzzDTLbHPMNc+F5rvIxS5xqctc7gpXusrVrnGt6yxwvRvc6CY3u8WtbnO7O9zpLne7x73uc78HLPSghzzsEY9a5DGLLbHU457wpKcs87RnPOs5z1vuBS96yctescJKq7zqNa97w5tWe8vb3vGu97xvjbXWWe8DG3zoIxt97BOf2mSzz3xuiy98aattvrLd177xre987wc/2uEnP9vpF7/6ze/+sMuf/rLb3/7xrz3+8z8kw0yB
+  </data>
+ </layer>
+ <layer name="can" width="16" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAN7gPxPTzyhAAu/aSYeQ8HJkU9MebdQ5K/j4Sx6cdlFqX67yHpZyBC/30GTADTj0yjy+MLQ1LDj1z9uAC++CEm/tHNIAQAZ/NLgA==
+  </data>
+ </layer>
+ <layer name="no" width="16" height="12">
+  <data encoding="base64" compression="zlib">
+   eJy7z4Ad3MfDvo8khiyHTz8uffjU4TIbl1p8biFkHrpbqK0fnzwhgE8/sf7Hph9dDznuJ1Y/NruItZ9YN2ELA1zpBIYBBvY8HA==
+  </data>
+ </layer>
+ <objectgroup name="object">
+  <object type="teleport" x="192" y="352" width="32" height="29">
+   <properties>
+    <property name="heroTileCoordX" value="0"/>
+    <property name="heroTileCoordY" value="4"/>
+    <property name="image" value="down_floor.png"/>
+    <property name="targetMap" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

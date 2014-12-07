@@ -36,7 +36,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //初始化动画管理器
 	sAnimationMgr->initAnimationMap();
 	//创建游戏主界面
-   // Scene *pScene = GameScene::create();
+    //Scene *pScene = GameScene::create();
 	//我的游戏测试
 	Scene *mScene = MyGameScene::create();
 

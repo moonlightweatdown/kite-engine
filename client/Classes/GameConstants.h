@@ -19,6 +19,7 @@ typedef enum
 	kDoor,//门
 	kNPC,//npc
 	kTeleport,//传送点
+	nogo,//无法到达的地点
 } CollisionType;//碰撞类型
 
 typedef enum

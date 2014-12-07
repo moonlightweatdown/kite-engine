@@ -35,6 +35,7 @@ GameMap* GameMap::gameMapWithTMXFile(const char *tmxFile)
 void GameMap::extraInit()
 {
 	//开启各个图层的纹理抗锯齿
+
 	enableAnitiAliasForEachLayer();
 
 	//初始化各层对象
